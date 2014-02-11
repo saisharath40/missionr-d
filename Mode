@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+#include <alloc.h>
+#include<conio.h>
+void main()
+{
+int size,*array,*array2,y,z,counter,max,location=0;
+	scanf("%d",&size);
+	array=(int *)malloc(size*(sizeof(int)));
+	array2=(int *)malloc(size*(sizeof(int)));
+	for(y=0;y<size;y++)
+	{
+		scanf("%d",&array[y]);
+	}
+	 for(y=0;y<size;y++)
+	 {
+     counter=1;
+     for(z=(y+1);z<size;z++){
+	if(array[y]==array[z]){            counter++;
+	}
+		array2[y]=counter;
+	 }
+	 }
+	max = array2[0];
+
+  for (y = 1; y<size; y++)
+  {
+    if (array2[y] >max)
+    {
+       max  = array2[y];
+	   location=y;
+    }
+  }
+  if(max==1)
+  {
+	  printf("No mode exists");
+  }
+  else
+  {
+  printf("Mode is present and is %d",array[location]);
+  }
+}
