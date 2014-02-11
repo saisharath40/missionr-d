@@ -1,0 +1,49 @@
+// tri.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	float xa,ya,xb,yb,xc,yc;
+	float a,b,c,d,e,f;
+int side1,side2,side3;
+scanf("%f %f %f %f %f %f",&xa,&ya,&xb,&yb,&xc,&yc);
+printf("%f %f %f %f %f %f",xa,ya,xb,yb,xc,yc);
+a=(xb-xa);
+b=(yb-ya);
+c=(xc-xa);
+d=(yc-ya);
+e=(xc-xb);
+f=(yc-yb);
+side1=sqrt((a*a)+(b*b));
+side2=sqrt((c*c)+(d*d));
+side3=sqrt((e*e)+(f*f));
+printf("\n%d %d %d",side1,side2,side3);
+
+if(((side1+side2)<side3)||((side2+side3)<side1)|| ((side1+side3)<(side2)))
+{
+printf("\n Triangle is not possible with these coordinates\n");
+}
+else if(side1==side2 && side2==side3 && side1==side3)
+{
+printf("\n Equilateral triangle");
+}
+else if((side1==side2) || (side2==side3) || (side3==side1))
+{
+printf("\n Isosceles triangle");
+}
+else if(((side1*side1)+(side2*side2)==(side3*side3)) ||  ((side2*side2)+(side3*side3)==(side1*side1)) || ((side1*side1)+(side3*side3)==(side2*side2)) )
+       {
+       printf("\n Right angled triangle");
+       }
+       else
+       {
+       printf("\n Triangle is not equi,isosceles,right angled");
+       }
+         
+getch();
+	return 0;
+}
+
