@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<conio.h>
+#include<alloc.h>
+struct node
+{
+int data;
+struct node *link;
+};
+void addatbeg(struct node **,int);
+void display(struct node *);
+void delete(struct node **,int);
+void main()
+{
+struct node *p;
+clrscr();
+p=NULL;
+addatbeg(&p,12);
+addadtbeg(&p,10);
+addatbeg(&p,15);
+addatbeg(&p,17);
+addatbeg(&p,20);
+display(p);
+delete(&p,15);
+delete(&p,100);
+display(p);
+}
+void addatbeg(struct node **q,int num)
+{
+struct node *temp;
+temp=malloc(sizeof(struct node));
+temp->data=num;
+temp->link=*q;
+*q=temp;
+}
+void display(struct node *q)
+{
+printf("\n");
+while(q!=NULL)
+{
+printf("%d ",q->data);
+q=q->link;
+}
+}
+void delete(struct node **q,int num)
+{
+struct node *a,*b;
+b=*q;
+while(b!=NULL)
+{
+if(b->data==num)
+{
+if(b==*q)
+{
+*q=b->link;
+}
+else 
+a->link=b->link;
+free(b);
+return;
+}
+else
+{
+b=a;
+b=b->link;
+}
+}
+printf("\n Element not found");
+}
