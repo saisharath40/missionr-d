@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<conio.h>
+#include<alloc.h>
+struct node
+{
+int data;
+struct node *link;
+};
+void addatbeg(struct node **,int);
+void display(struct node *);
+void circ(struct node *);
+void display2(struct node *);
+void main()
+{
+struct node *p;
+clrscr();
+p=NULL;
+addatbeg(&p,12);
+addatbeg(&p,10);
+addatbeg(&p,15);
+addatbeg(&p,17);
+display(p);
+circ(p);
+display2(p);
+getch();
+}
+void addatbeg(struct node **q,int num)
+{
+struct node *temp;
+temp=(node *)malloc(sizeof(struct node));
+temp->data=num;
+temp->link=*q;
+*q=temp;
+}
+void display(struct node *q)
+{
+printf("\n");
+while(q!=NULL)
+{
+printf("%d ",q->data);
+q=q->link;
+}
+}
+void display2(struct node *r)
+{
+struct node *q=r,*p=NULL;
+while(q!=p)
+{
+printf("\n%d",q->data);
+q=q->link;
+p=r;
+}}
+void circ(struct node *q)
+{
+struct node *p;
+p=q;
+while(q!=NULL)
+{
+q=q->link;
+}
+q->link=p;
+}
